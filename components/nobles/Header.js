@@ -1,20 +1,21 @@
-import Link from 'next/link'
+import Link from "next/link"
+import styled from "styled-components"
 
-export default function Header() {
-    return (
-        <header>
-            <p>This is header</p>
-        
-        
-        <style jsx>{`
-            header{
-                width: 100%;
-                height: 100px;
-                background: #ccc;
-                text-align: center;
-                line-height: 100px;
-            }
-        `}</style>
-        </header>
-    )
-}
+export const Header = () => (
+  <StyledHeader>
+    <HeaderNotification />
+  </StyledHeader>
+)
+
+const StyledHeader = styled.div`
+  width: 100%;
+  height: 50px;
+  background: gray;
+  text-align: center;
+`
+const HeaderNotification = styled.div`
+  float: left;
+  width: 50px;
+  height: 50px;
+  background: red;
+`

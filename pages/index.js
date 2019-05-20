@@ -1,10 +1,9 @@
-import Layout from '../components/nobles/MyLayout'
-
+import Layout from "../components/nobles/MyLayout"
 
 export default function Index() {
-    return (
-        <Layout>
-            <p>I fucking did it . . .</p>
-        </Layout>
-    )
+  return (
+    <Layout>
+      <span>Empty Container Place</span>
+    </Layout>
+  )
 }
