@@ -1,10 +1,13 @@
 import styled, { createGlobalStyle } from "styled-components"
 import { Header } from "./Header"
+import { MainNavbar } from "./Navbar"
 
 const Layout = props => (
   <Wrapper>
     <GlobalStyle />
-    <Header /> {props.children}{" "}
+    <Header />
+    <MainNavbar />
+    {props.children}{" "}
   </Wrapper>
 )
 
