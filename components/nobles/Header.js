@@ -7,11 +7,13 @@ export const Header = () => (
     <HeaderNotification>
       <NotifiIcon />
     </HeaderNotification>
-    <HeaderBars>
+    <HeaderBars onclick={NavController}>
       <BarsIcon />
     </HeaderBars>
   </StyledHeader>
 )
+
+/* - - - Page Components - - - */
 
 const StyledHeader = styled.div`
   width: 100%;
@@ -25,7 +27,7 @@ const HeaderNotification = styled.div`
   height: 50px;
 
   svg {
-    margin: 10px auto;
+    margin: 15px auto;
   }
 `
 const HeaderBars = styled.div`
@@ -37,3 +39,13 @@ const HeaderBars = styled.div`
     margin: 10px auto;
   }
 `
+
+/* - - - Page Functions - - - */
+
+function NavController() {
+  // $(this).on("click", function() {
+  //   const mover = document.getElementById("main-navbar")
+  //   mover.style.cssText = "right: 0px"
+  // })
+  console.log("Hi")
+}
