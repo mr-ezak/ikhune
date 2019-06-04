@@ -1,8 +1,8 @@
 import { Link } from "next/link"
 import styled from "styled-components"
 
-export const MainNavbar = () => (
-  <NavWraper>
+export const MainNavbar = props => (
+  <NavWraper right={props.right}>
     <NavHeader />
     <RawNavbar>
       <ul>
@@ -18,7 +18,7 @@ const NavWraper = styled.div`
   width: 230px;
   height: 100%;
   position: fixed;
-  right: -230px;
+  right: ${p => (p.right ? p.right : "-230px")};
   top: 0px;
   z-index: 1;
   background: #ccc;

@@ -1,17 +1,35 @@
+import React, { Component } from "react"
 import { Link } from "next/link"
 import styled from "styled-components"
 import { BarsIcon, NotifiIcon } from "./Icons"
+import { MainNavbar } from "./Navbar"
 
-export const Header = () => (
-  <StyledHeader>
-    <HeaderNotification>
-      <NotifiIcon />
-    </HeaderNotification>
-    <HeaderBars onclick={NavController}>
-      <BarsIcon />
-    </HeaderBars>
-  </StyledHeader>
-)
+export class Header extends Component {
+  state = {
+    right: "-230px"
+  }
+
+  handleNavClick = () => {
+    this.setState({
+      right: "0"
+    })
+  }
+
+  render = () => (
+    <>
+      <StyledHeader>
+        <HeaderNotification>
+          <NotifiIcon />
+        </HeaderNotification>
+
+        <HeaderBars onClick={this.handleNavClick}>
+          <BarsIcon />
+        </HeaderBars>
+      </StyledHeader>
+      <MainNavbar right={this.state.right} />
+    </>
+  )
+}
 
 /* - - - Page Components - - - */
 
@@ -39,13 +57,3 @@ const HeaderBars = styled.div`
     margin: 10px auto;
   }
 `
-
-/* - - - Page Functions - - - */
-
-function NavController() {
-  // $(this).on("click", function() {
-  //   const mover = document.getElementById("main-navbar")
-  //   mover.style.cssText = "right: 0px"
-  // })
-  console.log("Hi")
-}
