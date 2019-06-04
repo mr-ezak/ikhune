@@ -1,0 +1,9 @@
+@charset "utf-8";
+@font-face {
+  font-family: "BYekan";
+  src: url("./BYekan.eot") format("eot"), url("./BYekan.woff") format("woff"),
+    url("./BYekan.ttf") format("truetype");
+}
+body {
+  font-family: BYekan;
+}
