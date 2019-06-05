@@ -1,17 +1,25 @@
 import React, { Component } from "react"
-import { Link } from "next/link"
 import styled from "styled-components"
 import { BarsIcon, NotifiIcon } from "./Icons"
-import { MainNavbar } from "./Navbar"
+import { MainNavbar, NavBlank } from "./Navbar"
 
 export class Header extends Component {
   state = {
-    right: "-230px"
+    right: "-230px",
+    display: "none"
   }
 
   handleNavClick = () => {
     this.setState({
-      right: "0"
+      right: "0",
+      display: "block"
+    })
+  }
+
+  handleNavClose = () => {
+    this.setState({
+      right: "-230px",
+      display: "none"
     })
   }
 
@@ -27,6 +35,7 @@ export class Header extends Component {
         </HeaderBars>
       </StyledHeader>
       <MainNavbar right={this.state.right} />
+      <NavBlank display={this.state.display} onClick={this.handleNavClose} />
     </>
   )
 }

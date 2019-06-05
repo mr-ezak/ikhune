@@ -14,14 +14,30 @@ export const MainNavbar = props => (
   </NavWraper>
 )
 
+export const NavBlank = props => <MainNavBlank display={props.display} />
+
+/* - - - Styled Components - - - */
+
+const MainNavBlank = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 1;
+  top: 0;
+  display: ${d => (d.display ? d.display : "none")};
+  transition: all 500ms;
+`
+
 const NavWraper = styled.div`
   width: 230px;
   height: 100%;
   position: fixed;
   right: ${p => (p.right ? p.right : "-230px")};
   top: 0px;
-  z-index: 1;
+  z-index: 2;
   background: #ccc;
+  transition: all 500ms;
 `
 const NavHeader = styled.div`
   width: 100%;
