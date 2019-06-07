@@ -3,14 +3,44 @@ import Link from "next/link"
 
 export const MainNavbar = props => (
   <NavWraper right={props.right}>
-    <NavHeader />
+    <NavHeader>
+      <NavHeaderProPic />
+    </NavHeader>
     <RawNavbar>
       <ul>
-        <li>پرونده</li>
-        <li>لیست خدمات</li>
-        <Link href="/stp">
+        <Link href="/">
+          <li>
+            <a>صفحه اصلی</a>
+          </li>
+        </Link>
+        <Link href="/soon">
+          <li>
+            <a>پرونده</a>
+          </li>
+        </Link>
+        <Link href="/soon">
+          <li>
+            <a>لیست خدمات</a>
+          </li>
+        </Link>
+        <Link href="/soon">
+          <li>
+            <a>تاریخچه</a>
+          </li>
+        </Link>
+        <Link href="/setup">
           <li>
             <a>پیکربندی</a>
+          </li>
+        </Link>
+        <Link href="/">
+          <li>
+            <a>درباره ما</a>
+          </li>
+        </Link>
+        <Link href="/">
+          <li>
+            <a>تماس با ما</a>
           </li>
         </Link>
       </ul>
@@ -24,6 +54,7 @@ export const NavBlank = props => (
 
 /* - - - Styled Components - - - */
 
+/* - - - Main Styled Components - - - */
 const NavWraper = styled.div`
   width: 230px;
   height: 100%;
@@ -46,11 +77,27 @@ const MainNavBlank = styled.div`
   transition: all 500ms;
 `
 
+/* - - - Nav Header Components - - - */
+
 const NavHeader = styled.div`
   width: 100%;
   height: 100px;
   background: #666;
+  overflow: hidden;
 `
+const NavHeaderProPic = styled.div`
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  margin-top: 20px;
+  margin-right: 20px;
+  border: 2px solid #333;
+  background: #999;
+  float: right;
+`
+
+/* - - - RawNav Components - - - */
+
 const RawNavbar = styled.div`
   width: 100%;
   height: auto;

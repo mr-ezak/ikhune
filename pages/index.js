@@ -5,7 +5,7 @@ export default function Index() {
   return (
     <Layout>
       <div>
-        <p align="center">This is Index</p>
+        <p align="center">صفحه اصلی</p>
       </div>
     </Layout>
   )
