@@ -16,7 +16,7 @@ export class Header extends Component {
     })
   }
 
-  handleNavClose = () => {
+  handleNavCloser = () => {
     this.setState({
       right: "-230px",
       display: "none"
@@ -35,7 +35,7 @@ export class Header extends Component {
         </HeaderBars>
       </StyledHeader>
       <MainNavbar right={this.state.right} />
-      <NavBlank display={this.state.display} onClick={this.handleNavClose} />
+      <NavBlank onClick={this.handleNavCloser} display={this.state.display} />
     </>
   )
 }
@@ -54,7 +54,7 @@ const HeaderNotification = styled.div`
   height: 50px;
 
   svg {
-    margin: 15px auto;
+    margin: 10px auto;
   }
 `
 const HeaderBars = styled.div`
