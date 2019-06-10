@@ -45,7 +45,7 @@ export class Header extends Component {
 const StyledHeader = styled.div`
   width: 100%;
   height: 50px;
-  background: #e040fb;
+  background: #536dfe;
   text-align: center;
 `
 const HeaderNotification = styled.div`
