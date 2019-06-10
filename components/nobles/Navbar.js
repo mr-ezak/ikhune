@@ -123,7 +123,8 @@ const NavHeaderInfo = styled.div`
   margin-top: 25px;
   direction: rtl;
   color: white;
-  h5, h6{
+  h5,
+  h6 {
     margin: 5px;
   }
 `
@@ -154,7 +155,7 @@ const RawNavbar = styled.div`
       padding-left: 10px;
       float: right;
     }
-    a{
+    a {
       width: 200px;
       height: 30px;
       display: block;
