@@ -45,13 +45,13 @@ export const MainNavbar = props => (
             <a>پیکربندی</a>
           </li>
         </Link>
-        <Link href="/">
+        <Link href="/about">
           <li>
             <Icons.AboutIcon />
             <a>درباره ما</a>
           </li>
         </Link>
-        <Link href="/">
+        <Link href="/contact">
           <li>
             <Icons.ContactIcon />
             <a>تماس با ما</a>
