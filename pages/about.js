@@ -48,6 +48,5 @@ const AboutHeader = styled.h2`
   padding-right: 10px;
   direction: rtl;
   margin: 0;
-  position: absolute;
-  right: 0;
+  float: right;
 `
