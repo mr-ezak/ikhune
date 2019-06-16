@@ -3,11 +3,15 @@ import Layout from "../components/nobles/MyLayout"
 import Link from "next/link"
 import { GoBackIcon } from "../components/nobles/Icons"
 import { Component } from "react"
+import { Formik } from "formik"
+import { postData } from "../utils/main"
 
 export default class Setup extends Component {
   state = {
     btnshow: "block",
-    formshow: "60px"
+    formshow: "60px",
+    wifissid: "",
+    wifipass: ""
   }
 
   handleAddBTN = () => {
@@ -22,6 +26,17 @@ export default class Setup extends Component {
       btnshow: "block",
       formshow: "60px"
     })
+  }
+
+  handleInputChange = value => {
+    this.setState({
+      wifissid: value
+    })
+    console.log(value)
+  }
+
+  handleSubmit = () => {
+    alert(this.state.wifissid)
   }
 
   render = () => (
@@ -39,24 +54,98 @@ export default class Setup extends Component {
             <SetupAdd btnshow={this.state.btnshow} onClick={this.handleAddBTN}>
               افزودن کلید جدید
             </SetupAdd>
-            <form>
-              <div>تنظیمات ارتباطی</div>
-              <input placeholder="SSID" />
-              <input placeholder="Passcode" />
-              <div>تنظیمات کاربری</div>
-              <input placeholder="Username" />
-              <input placeholder="Password" />
-              <div>نوع خدمت</div>
-              <select>
-                <option>مسخره بازی</option>
-                <option>خر حمالی</option>
-                <option>ضرب و شتم</option>
-              </select>
-              <SetupAddBTN>ثبت</SetupAddBTN>
-              <SetupCancelBTN onClick={this.handleCancelBTN}>
-                لغو
-              </SetupCancelBTN>
-            </form>
+            <Formik
+              initialValues={{
+                ssid: "",
+                passcode: "",
+                username: "",
+                password: "",
+                service: ""
+              }}
+              validate={values => {
+                let errors = {}
+                if (!values.email) {
+                  errors.email = "Required"
+                }
+                return errors
+              }}
+              onSubmit={(values, { setSubmitting }) => {
+                setSubmitting(true)
+
+                postData("http://tarino.net/saeed/index.php?q=batman", {
+                  q: "arrow"
+                })
+                  .then(data => console.log(JSON.stringify(data)))
+                  .catch(error => console.error(error))
+
+                setTimeout(() => {
+                  setSubmitting(false)
+                }, 400)
+              }}
+            >
+              {({
+                values,
+                errors,
+                touched,
+                handleChange,
+                handleBlur,
+                handleSubmit,
+                isSubmitting
+                /* and other goodies */
+              }) => (
+                <form onSubmit={handleSubmit}>
+                  <div>تنظیمات ارتباطی</div>
+                  <input
+                    type="text"
+                    name="ssid"
+                    placeholder="SSID"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.ssid}
+                  />
+                  <input
+                    placeholder="Passcode"
+                    name="passcode"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.passcode}
+                  />
+                  <div>تنظیمات کاربری</div>
+                  <input
+                    placeholder="Username"
+                    name="username"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.username}
+                  />
+                  <input
+                    placeholder="Password"
+                    name="password"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.password}
+                  />
+                  <div>نوع خدمت</div>
+                  <select
+                    name="service"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.service}
+                  >
+                    <option />
+                    <option>مسخره بازی</option>
+                    <option>خر حمالی</option>
+                    <option>ضرب و شتم</option>
+                  </select>
+                  <SetupAddBTN type="submit" disabled={isSubmitting}>
+                    ثبت
+                  </SetupAddBTN>
+                  <SetupCancelBTN onClick={this.handleCancelBTN}>
+                    لغو
+                  </SetupCancelBTN>
+                </form>
+              )}
+            </Formik>
           </SetupContainer>
         </SetupWrapper>
       </Layout>
@@ -162,7 +251,7 @@ const SetupAdd = styled.button`
   transition: all 600ms;
 `
 
-const SetupAddBTN = styled.div`
+const SetupAddBTN = styled.button`
   width: 90px;
   height: 30px;
   background-color: #0070f3;
