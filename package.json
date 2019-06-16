@@ -13,6 +13,7 @@
   "author": "Mr Ezak",
   "license": "ISC",
   "dependencies": {
+    "formik": "^1.5.7",
     "i": "^0.3.6",
     "next": "^8.1.0",
     "npm": "^6.9.0",
