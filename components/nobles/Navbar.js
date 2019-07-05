@@ -160,6 +160,7 @@ const RawNavbar = styled.div`
       height: 30px;
       display: block;
       line-height: 30px;
+      font-size: 15px;
     }
   }
 `

@@ -229,7 +229,6 @@ const SetupContainer = styled.div`
     padding-right: 5px;
     border-radius: 3px;
     color: #333;
-    position: relative;
   }
 
   div {
