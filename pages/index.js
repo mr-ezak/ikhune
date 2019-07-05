@@ -1,11 +1,11 @@
 import Layout from "../components/nobles/MyLayout"
-import Link from "next/link"
+import { Slider1 } from "../components/dashboard/slider1"
 
 export default function Index() {
   return (
     <Layout>
       <div>
-        <p align="center">صفحه اصلی</p>
+        <Slider1 />
       </div>
     </Layout>
   )
